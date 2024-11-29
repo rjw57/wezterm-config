@@ -3,6 +3,11 @@ local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
+-- HACK: on Chromebooks, Wayland support is lacking
+if wezterm.hostname() == "penguin" then
+	config.enable_wayland = false
+end
+
 -- Startup behaviour
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
