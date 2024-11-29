@@ -39,4 +39,38 @@ config.tab_bar_at_bottom = true
 -- Window
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
+-- Key bindings
+config.keys = {
+  {
+    key = "{",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.ActivatePaneDirection("Prev"),
+  },
+  {
+    key = "}",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.ActivatePaneDirection("Prev"),
+  },
+  {
+    key = "LeftArrow",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.ActivateTabRelative(-1),
+  },
+  {
+    key = "RightArrow",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.ActivateTabRelative(1),
+  },
+  {
+    key = "Enter",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+  },
+  {
+    key = '"',
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+  },
+}
+
 return config
