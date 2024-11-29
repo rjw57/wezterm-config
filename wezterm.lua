@@ -5,19 +5,19 @@ local config = wezterm.config_builder()
 
 -- HACK: on Chromebooks, Wayland support is lacking
 if wezterm.hostname() == "penguin" then
-	config.enable_wayland = false
+  config.enable_wayland = false
 end
 
 -- Startup behaviour
 wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or {})
-	window:gui_window():maximize()
+  local _, _, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
 end)
 
 -- Text
 config.font = wezterm.font_with_fallback({
-	"Flexi IBM VGA True",
-	{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+  "Flexi IBM VGA True",
+  { family = "Symbols Nerd Font Mono", scale = 0.75 },
 })
 config.font_dirs = { wezterm.config_dir .. "/fonts" }
 config.font_size = 14
@@ -25,8 +25,8 @@ config.bold_brightens_ansi_colors = "BrightOnly"
 
 -- Disable the auto-generated bold font.
 config.font_rules = {
-	{ intensity = "Bold", font = config.font },
-	{ intensity = "Half", font = config.font },
+  { intensity = "Bold", font = config.font },
+  { intensity = "Half", font = config.font },
 }
 
 -- Colours
