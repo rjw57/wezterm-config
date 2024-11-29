@@ -15,7 +15,6 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Symbols Nerd Font Mono", scale = 0.75 },
 })
 config.font_dirs = { wezterm.config_dir .. "/fonts" }
-config.font_locator = "ConfigDirsOnly"
 config.font_size = 14
 config.bold_brightens_ansi_colors = "BrightOnly"
 
